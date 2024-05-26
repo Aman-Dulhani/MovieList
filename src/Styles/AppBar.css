@@ -1,0 +1,79 @@
+.app-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	/* align-items: center; */
+	/* padding: 10px 20px; */
+	background-color: #333;
+	color: white;
+	z-index: 1000; /* Ensure it's above other content */
+	overflow-x: hidden;
+	justify-content: flex-start;
+}
+
+.app-bar__logo img {
+	width: 150px; /* Adjust size as needed */
+	height: 50px; /* Adjust size as needed */
+	padding: 10px 20px;
+}
+
+/* .app-bar__menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+} */
+
+.app-bar__menu {
+	/* border-top: 2px solid gray; */
+	height: 50px;
+	padding: 8px 0;
+	display: inline-block;
+	cursor: pointer;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.app-bar__menu ul li:last-child {
+	margin-right: 0;
+}
+
+.app-bar__menu::-webkit-scrollbar {
+	width: 0px;
+	height: 0px;
+	background: transparent; /* make scrollbar transparent */
+}
+
+.genre-filter {
+	display: flex;
+	justify-content: center;
+	overflow-x: auto;
+	white-space: nowrap;
+	padding: 10px 0;
+	/* background-color: #f8f8f8; */
+	/* border-top: 2px solid rgb(87, 86, 86); */
+	height: 50px;
+}
+
+.chip-button {
+	margin: 0 10px;
+	padding: 10px 20px;
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	background-color: rgba(255, 255, 255, 0.1);
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.genre-button.selected {
+	border-bottom: 2px solid #007bff;
+	font-weight: bold;
+}
+
+.chip-button:hover {
+	color: rgb(241, 241, 241);
+	/* border: 2px solid rgb(155, 152, 152); */
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	background-color: rgba(255, 255, 255, 0.2);
+}
