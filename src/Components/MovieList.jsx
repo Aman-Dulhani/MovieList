@@ -7,7 +7,7 @@ export const MovieList = ({ items }) => {
 		<div style={{ width: "100%" }}>
 			{items?.length > 0 &&
 				items?.map((item) => (
-					<>
+					<div key={item.year}>
 						<h1>{item.year}</h1>
 						<div className="movie-container">
 							{item.results.length > 0 &&
@@ -22,7 +22,7 @@ export const MovieList = ({ items }) => {
 									/>
 								))}
 						</div>
-					</>
+					</div>
 				))}
 		</div>
 	);

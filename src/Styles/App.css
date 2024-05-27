@@ -45,7 +45,7 @@ body {
 }
 
 .scrollable-container {
-	height: 90vh;
+	height: 85vh;
 	overflow: auto;
 	display: flex;
 	flex-direction: column;

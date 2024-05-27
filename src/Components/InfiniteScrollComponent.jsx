@@ -59,7 +59,7 @@ const InfiniteScrollComponent = ({
 		if (container) {
 			container.addEventListener("scroll", handleScroll);
 			return () => {
-				console.log("UNMOUNT");
+				// console.log("UNMOUNT");
 				container.removeEventListener("scroll", handleScroll);
 			};
 		}

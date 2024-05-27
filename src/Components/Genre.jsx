@@ -1,9 +1,8 @@
-export const Chip = ({ title, key, onClick }) => {
+export const Chip = ({ title, onClick, selected, id }) => {
 	return (
 		<button
-			className="chip-button"
-			key={key}
-			onClick={() => onClick(key)}
+			className={"chip-button" + (selected ? " selected" : "")}
+			onClick={() => onClick(id, !selected)}
 		>
 			{title}
 		</button>

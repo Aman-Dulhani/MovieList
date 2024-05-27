@@ -13,6 +13,7 @@ import { genreURL } from "./Hooks/useGet";
 
 function App() {
 	const [genres, setGenres] = useState([]);
+	const [selected, setSelected] = useState([]);
 	useEffect(() => {
 		const getGenres = async () => {
 			const fetchedGenres = await getData(genreURL);
@@ -20,11 +21,29 @@ function App() {
 		};
 		getGenres();
 	}, []);
+	const onSelect = (id, checked) => {
+		if (checked) {
+			setSelected((prev) => [...prev, id]);
+		} else {
+			const index = selected.indexOf(id);
+			if (index > -1) {
+				const newSelected = [
+					...selected.slice(0, index),
+					...selected.slice(index + 1),
+				];
+				setSelected(newSelected);
+			}
+		}
+	};
 	return (
 		<div style={{ overflow: "hidden" }}>
-			<AppBar genres={genres} />
+			<AppBar
+				genres={genres}
+				handleOnClick={onSelect}
+				selected={selected}
+			/>
 			<div style={{ marginTop: 130, padding: 10 }}>
-				<MoviesContainer />
+				<MoviesContainer selectedGenres={selected} />
 			</div>
 		</div>
 	);

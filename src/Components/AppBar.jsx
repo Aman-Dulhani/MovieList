@@ -2,7 +2,7 @@
 import "../Styles/AppBar.css";
 import { Chip } from "./Genre";
 
-export const AppBar = ({ genres, handleOnClick }) => {
+export const AppBar = ({ genres, handleOnClick, selected }) => {
 	return (
 		<div className="app-bar">
 			<div className="app-bar__logo">
@@ -17,7 +17,9 @@ export const AppBar = ({ genres, handleOnClick }) => {
 						<Chip
 							title={genre.name}
 							key={genre.id}
+							id={genre.id}
 							onClick={handleOnClick}
+							selected={selected.includes(genre.id)}
 						/>
 					))}
 			</div>

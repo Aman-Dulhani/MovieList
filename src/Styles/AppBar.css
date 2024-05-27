@@ -66,8 +66,8 @@
 	font-size: 14px;
 }
 
-.genre-button.selected {
-	border-bottom: 2px solid #007bff;
+.chip-button.selected {
+	background-color: rgba(235, 37, 70, 0.872);
 	font-weight: bold;
 }
 
