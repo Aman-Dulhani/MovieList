@@ -17,7 +17,7 @@ const commonParams = {
 	"vote_count.gte": 100,
 };
 
-const MoviesContainer = () => {
+export const NewMovieContainer = () => {
 	const [minYear, setMinYear] = useState(2012);
 	const [maxYear, setMaxYear] = useState(2012);
 
@@ -71,5 +71,3 @@ const MoviesContainer = () => {
 		</div>
 	);
 };
-
-export default MoviesContainer;

@@ -25,6 +25,6 @@ export const doGetCall = async (method, key, options) => {
 export const getData = async (key, options = {}) => {
 	const response = await doGetCall("get", key, options);
 	const { transform } = options;
-	console.log(response);
+	// console.log(response);
 	return transform ? transform(response.data, options) : response.data;
 };
