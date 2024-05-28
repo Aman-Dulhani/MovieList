@@ -19,6 +19,9 @@ const InfiniteScrollComponent = ({
 			setItems([newItems]);
 		};
 		fetchData();
+		if (containerRef.current) {
+			containerRef.current.scrollTo(0, 2);
+		}
 	}, [initialLoad]);
 
 	const handleScroll = useCallback(async () => {
@@ -27,7 +30,7 @@ const InfiniteScrollComponent = ({
 
 		if (
 			container.scrollTop + container.clientHeight >=
-				container.scrollHeight - 10 &&
+				container.scrollHeight - 5 &&
 			!isFetchingNext
 		) {
 			setIsFetchingNext(true);
@@ -38,7 +41,7 @@ const InfiniteScrollComponent = ({
 			setIsFetchingNext(false);
 		}
 
-		if (container.scrollTop < 1 && !isFetchingPrev) {
+		if (container.scrollTop === 0 && !isFetchingPrev) {
 			setIsFetchingPrev(true);
 			const newMovies = await loadPrevData();
 			if (newMovies) {

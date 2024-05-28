@@ -42,7 +42,7 @@ function App() {
 				handleOnClick={onSelect}
 				selected={selected}
 			/>
-			<div style={{ marginTop: 130, padding: 10 }}>
+			<div style={{ marginTop: 120, padding: 10 }}>
 				<MoviesContainer selectedGenres={selected} />
 			</div>
 		</div>

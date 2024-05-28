@@ -65,13 +65,16 @@ const MoviesContainer = ({ selectedGenres }) => {
 	}, [minYear, selectedGenres]);
 
 	const loadNextData = useCallback(async () => {
-		const nextYear = maxYear + 1;
-		let newMovies = await getData(baseURL, {
-			debounce: 500,
-			transform: transformMovies,
-			extraParams: getParams(nextYear, selectedGenres),
-		});
-		setMaxYear(nextYear);
+		let newMovies;
+		if (maxYear < new Date().getFullYear()) {
+			const nextYear = maxYear + 1;
+			newMovies = await getData(baseURL, {
+				debounce: 500,
+				transform: transformMovies,
+				extraParams: getParams(nextYear, selectedGenres),
+			});
+			setMaxYear(nextYear);
+		}
 		return newMovies;
 	}, [maxYear, selectedGenres]);
 
