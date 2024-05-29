@@ -87,6 +87,7 @@ export const MovieCard = ({ movie }) => {
 			<DialogComponent
 				isOpen={open}
 				onClose={() => setOpen(false)}
+				title={title}
 			>
 				{loading ? (
 					<Loading />

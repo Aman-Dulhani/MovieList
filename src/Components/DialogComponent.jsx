@@ -1,7 +1,7 @@
 // import React from 'react';
 import "../Styles/DialogComponent.css";
 
-const DialogComponent = ({ isOpen, onClose, children }) => {
+const DialogComponent = ({ isOpen, onClose, children, title }) => {
 	if (!isOpen) {
 		return null;
 	}
@@ -11,7 +11,9 @@ const DialogComponent = ({ isOpen, onClose, children }) => {
 			<div className={`overlay ${isOpen ? "open" : ""}`}></div>
 			<div className={`dialog ${isOpen ? "dialog--open" : ""}`}>
 				<div className="dialogHeader">
-					<span style={{ fontWeight: "bold" }}>Title</span>
+					<span style={{ fontWeight: "bold", fontSize: "x-large" }}>
+						{title}
+					</span>
 					<button
 						className="close-button"
 						onClick={onClose}

@@ -22,7 +22,7 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background: white;
+	background: #242424;
 	/* padding: 20px; */
 	border-radius: 8px;
 	max-width: 800px;
@@ -32,6 +32,7 @@
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	overflow: auto;
 	opacity: 0;
+	color: whitesmoke;
 }
 
 .dialog--open {
@@ -44,14 +45,13 @@
 }
 
 .dialogHeader {
-	background: white;
+	background: #242424;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 30px;
 	padding: 20px;
-	color: black;
-
+	color: whitesmoke;
 	border-bottom: 2px solid lightgray;
 }
 
@@ -59,15 +59,15 @@
 .close-button {
 	/* background: gray; */
 	background: transparent;
-	color: black;
-	border: 2px solid black;
+	color: whitesmoke;
+	border: 2px solid white;
 	cursor: pointer;
 }
 
 /* Dialog Content */
 .dialog-content {
 	padding: 10px;
-	color: black;
+	color: whitesmoke;
 	overflow: auto;
 }
 
