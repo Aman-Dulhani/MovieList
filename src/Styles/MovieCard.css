@@ -33,7 +33,7 @@
 	position: relative;
 	border-radius: 10px;
 	overflow: hidden;
-	transition: transform 0.2s;
+	transition: transform 0.4s;
 }
 
 .movie-card:hover {
@@ -67,6 +67,10 @@
 .movie-details {
 	/* visibility: visible; */
 	/* height: inherit; */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -84,7 +88,7 @@
 .movie-description {
 	display: flex;
 	flex-direction: column;
-	color: rgb(193, 197, 201);
+	/* color: rgb(193, 197, 201); */
 	gap: 5px;
 }
 

@@ -16,7 +16,7 @@ const DialogComponent = ({ isOpen, onClose, children }) => {
 						className="close-button"
 						onClick={onClose}
 					>
-						×
+						Close
 					</button>
 				</div>
 				<div className="dialog-content">{children}</div>
