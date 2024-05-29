@@ -5,9 +5,16 @@ import MovieList from "./MovieList";
 import InfiniteScrollComponent from "./InfiniteScrollComponent";
 
 const transformMovies = (response, options) => {
+	const movies = response?.results?.map((movie) => ({
+		id: movie.id,
+		title: movie.title,
+		poster: movie.poster_path,
+		description: movie.overview,
+		rating: movie.vote_average.toFixed(1),
+	}));
 	return {
 		year: options.extraParams?.primary_release_year,
-		results: response.results,
+		results: movies || [],
 	};
 };
 

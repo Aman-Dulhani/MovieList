@@ -13,11 +13,7 @@ export const MovieList = ({ items }) => {
 							{item.results.length > 0 &&
 								item.results.map((movie) => (
 									<MovieCard
-										title={movie.title}
-										poster={movie.poster_path}
-										description={movie.overview}
-										adult={movie.adult}
-										rating={movie.vote_average.toFixed(1)}
+										movie={movie}
 										key={movie.id}
 									/>
 								))}
