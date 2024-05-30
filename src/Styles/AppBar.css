@@ -14,10 +14,16 @@
 	justify-content: flex-start;
 }
 
+.app-bar__logo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+}
+
 .app-bar__logo img {
 	width: 150px; /* Adjust size as needed */
 	height: 40px; /* Adjust size as needed */
-	padding: 10px 20px;
 }
 
 /* .app-bar__menu ul {
@@ -70,4 +76,9 @@
 	background-color: white;
 	font-weight: bold;
 	color: black;
+}
+
+.search-button {
+	border: 2px solid white;
+	background: inherit;
 }

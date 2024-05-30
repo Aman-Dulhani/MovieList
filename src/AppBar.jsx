@@ -1,8 +1,18 @@
 // import React from 'react';
 import "./Styles/AppBar.css";
 import { Chip } from "./Components/Genre";
+import { useState } from "react";
+import SearchInput from "./Components/SearchInput";
 
-export const AppBar = ({ genres, handleOnClick, selected }) => {
+export const AppBar = ({
+	genres,
+	handleOnClick,
+	selected,
+	setSearchResults,
+}) => {
+	const [showSearch, setShowSearch] = useState(false);
+	const [inputValue, setInputValue] = useState("");
+	console.log(setSearchResults);
 	return (
 		<div className="app-bar">
 			<div className="app-bar__logo">
@@ -10,6 +20,23 @@ export const AppBar = ({ genres, handleOnClick, selected }) => {
 					src="https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png"
 					alt="Logo"
 				/>
+				{!showSearch ? (
+					<button
+						className="search-button"
+						onClick={() => setShowSearch(true)}
+					>
+						Search
+					</button>
+				) : (
+					<SearchInput
+						inputValue={inputValue}
+						setInputValue={setInputValue}
+						onClear={() => {
+							setInputValue("");
+							setShowSearch(false);
+						}}
+					/>
+				)}
 			</div>
 			<div className="app-bar__menu">
 				{genres &&
