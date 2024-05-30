@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { baseURL } from "../Hooks/useGet";
-import { getData } from "./commonUtils";
+import { getData, baseURL } from "./commonUtils";
 import MovieList from "./MovieList";
 import InfiniteScrollComponent from "./InfiniteScrollComponent";
 

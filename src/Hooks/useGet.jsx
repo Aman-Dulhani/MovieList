@@ -4,11 +4,6 @@ import { useEffect } from "react";
 import { useCallback } from "react";
 import { useReducer } from "react";
 
-export const baseURL = "https://api.themoviedb.org/3/discover/movie";
-export const imgURL = "https://image.tmdb.org/t/p/w300/";
-export const genreURL = "https://api.themoviedb.org/3/genre/movie/list";
-export const detailsURL = "https://api.themoviedb.org/3/movie/";
-
 export const getAxiosParams = (method, key, extraParams) => {
 	return {
 		method,

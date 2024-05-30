@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { detailsURL, imgURL, useGet } from "../Hooks/useGet";
+import { useGet } from "../Hooks/useGet";
 import "../Styles/MovieCard.css";
 import DialogComponent from "./DialogComponent";
 import Loading from "./Loading";
+import { imgURL, detailsURL } from "./commonUtils";
 
 const transformDetails = (details) => {
 	const movieGeners = details.genres.map((genre) => genre.name).join(", ");
@@ -14,7 +15,7 @@ const transformDetails = (details) => {
 	return {
 		genres: movieGeners,
 		cast: cast,
-		director: director || { name: "" },
+		director: director?.name || "",
 	};
 };
 
@@ -28,7 +29,6 @@ export const Details = ({ rating, description, details, poster }) => {
 					style={{
 						height: "400px",
 						width: "250px",
-						boxShadow: "10px 10px 10px #888888;",
 					}}
 				/>
 			</span>
@@ -42,7 +42,7 @@ export const Details = ({ rating, description, details, poster }) => {
 				<strong>Cast:</strong> {cast}
 			</span>
 			<span>
-				<strong>Director:</strong> {director.name}
+				<strong>Director:</strong> {director}
 			</span>
 			<span>
 				<strong>Rating:</strong> {rating}
@@ -59,17 +59,13 @@ export const MovieCard = ({ movie }) => {
 		transform: transformDetails,
 		ready: !!open,
 	});
-	// const textColor = getContrastColor(movie.poster_path);
 	return (
 		<React.Fragment>
 			<div
 				className="movie-card"
 				style={{ backgroundImage: `url(${imgURL + poster})` }}
 			>
-				<div
-					className="movie-details"
-					// style={{ color: textColor }}
-				>
+				<div className="movie-details">
 					<h3>{title}</h3>
 					<button
 						style={{

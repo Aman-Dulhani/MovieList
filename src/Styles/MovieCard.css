@@ -5,26 +5,6 @@
 	padding: 20px;
 }
 
-@media (max-width: 1000px) {
-	.movie-card:nth-child(2n + 1):hover {
-		transform-origin: left center !important;
-	}
-
-	.movie-card:nth-child(2n):hover {
-		transform-origin: right center !important;
-	}
-}
-
-@media (max-width: 700px) {
-	.movie-card:nth-child(n + 1):hover {
-		transform-origin: center !important;
-	}
-
-	.movie-card:nth-child(n):hover {
-		transform-origin: center !important;
-	}
-}
-
 .movie-card {
 	/* width: 300px; */
 	height: 450px;
@@ -37,7 +17,7 @@
 }
 
 .movie-card:hover {
-	transform: scale(1.15);
+	transform: scale(1.1);
 	z-index: 10;
 	overflow-y: auto;
 }
@@ -46,18 +26,6 @@
 	width: 0px;
 	background: transparent; /* make scrollbar transparent */
 }
-
-.movie-card:first-child:hover {
-	transform-origin: left center;
-}
-
-.movie-card:last-child:hover {
-	transform-origin: right center;
-}
-
-/* .movie-card .movie-details {
-	visibility: hidden;
-} */
 
 .movie-card:hover .movie-details {
 	opacity: 1;
@@ -82,7 +50,7 @@
 	border-bottom-right-radius: 10px; */
 	opacity: 0;
 	transform: translateY(100%);
-	transition: opacity 0.3s;
+	transition: opacity 0.3s transform 0.3s;
 }
 
 .movie-description {
