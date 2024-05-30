@@ -1,15 +1,10 @@
 // import React from 'react';
 import "./Styles/AppBar.css";
-import { Chip } from "./Components/Genre";
 import { useState } from "react";
 import SearchInput from "./Components/SearchInput";
+import { netflixLogo } from "./commonUtils";
 
-export const AppBar = ({
-	genres,
-	handleOnClick,
-	selected,
-	setSearchResults,
-}) => {
+export const AppBar = ({ setSearchResults }) => {
 	const [showSearch, setShowSearch] = useState(false);
 	const [inputValue, setInputValue] = useState("");
 	console.log(setSearchResults);
@@ -17,7 +12,7 @@ export const AppBar = ({
 		<div className="app-bar">
 			<div className="app-bar__logo">
 				<img
-					src="https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png"
+					src={netflixLogo}
 					alt="Logo"
 				/>
 				{!showSearch ? (
@@ -37,18 +32,6 @@ export const AppBar = ({
 						}}
 					/>
 				)}
-			</div>
-			<div className="app-bar__menu">
-				{genres &&
-					genres.map((genre) => (
-						<Chip
-							title={genre.name}
-							key={genre.id}
-							id={genre.id}
-							onClick={handleOnClick}
-							selected={selected.includes(genre.id)}
-						/>
-					))}
 			</div>
 		</div>
 	);

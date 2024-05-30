@@ -80,3 +80,24 @@ body {
 	font-size: 14px;
 	color: blue;
 }
+
+.filters {
+	/* height: 50px; */
+	/* position: relative; */
+	width: 100%;
+	padding: 8px 0;
+	display: inline-block;
+	cursor: pointer;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.filters ul li:last-child {
+	margin-right: 0;
+}
+
+.filters::-webkit-scrollbar {
+	width: 2px;
+	height: 2px;
+	background: transparent; /* make scrollbar transparent */
+}

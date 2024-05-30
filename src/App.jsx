@@ -4,6 +4,7 @@ import MoviesContainer from "./MoviesContainer";
 import { useEffect, useState } from "react";
 import { getData } from "./commonUtils";
 import { genreURL } from "./commonUtils";
+import { Chip } from "./Components/Genre";
 
 function App() {
 	const [genres, setGenres] = useState([]);
@@ -36,7 +37,19 @@ function App() {
 				handleOnClick={onSelect}
 				selected={selected}
 			/>
-			<div style={{ marginTop: 120, padding: 10 }}>
+			<div style={{ marginTop: 60 }}>
+				<div className="filters">
+					{genres &&
+						genres.map((genre) => (
+							<Chip
+								title={genre.name}
+								key={genre.id}
+								id={genre.id}
+								onClick={onSelect}
+								selected={selected.includes(genre.id)}
+							/>
+						))}
+				</div>
 				<MoviesContainer selectedGenres={selected} />
 			</div>
 		</div>
