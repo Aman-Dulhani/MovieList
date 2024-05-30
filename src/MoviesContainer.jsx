@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { getData, baseURL } from "./commonUtils";
 import MovieList from "./MovieList";
-import InfiniteScrollComponent from "./InfiniteScrollComponent";
+import InfiniteScrollComponent from "./Components/InfiniteScrollComponent";
 
 const transformMovies = (response, options) => {
 	const movies = response?.results?.map((movie) => ({

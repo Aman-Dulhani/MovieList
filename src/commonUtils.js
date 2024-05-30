@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getAxiosParams } from "../Hooks/useGet";
+import { getAxiosParams } from "./Hooks/useGet";
 
 export const baseURL = "https://api.themoviedb.org/3/discover/movie";
 export const imgURL = "https://image.tmdb.org/t/p/w300/";

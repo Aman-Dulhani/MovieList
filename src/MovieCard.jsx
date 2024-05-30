@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { useGet } from "../Hooks/useGet";
-import "../Styles/MovieCard.css";
-import DialogComponent from "./DialogComponent";
-import Loading from "./Loading";
+import { useGet } from "./Hooks/useGet";
+import "./Styles/MovieCard.css";
+import DialogComponent from "./Components/DialogComponent";
+import Loading from "./Components/Loading";
 import { imgURL, detailsURL } from "./commonUtils";
 
 const transformDetails = (details) => {

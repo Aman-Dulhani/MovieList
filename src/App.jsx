@@ -1,9 +1,9 @@
 import "./Styles/App.css";
-import AppBar from "./Components/AppBar";
-import MoviesContainer from "./Components/MoviesContainer";
+import AppBar from "./AppBar";
+import MoviesContainer from "./MoviesContainer";
 import { useEffect, useState } from "react";
-import { getData } from "./Components/commonUtils";
-import { genreURL } from "./Components/commonUtils";
+import { getData } from "./commonUtils";
+import { genreURL } from "./commonUtils";
 
 function App() {
 	const [genres, setGenres] = useState([]);

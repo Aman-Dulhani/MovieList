@@ -1,6 +1,6 @@
 // import React from 'react';
-import "../Styles/AppBar.css";
-import { Chip } from "./Genre";
+import "./Styles/AppBar.css";
+import { Chip } from "./Components/Genre";
 
 export const AppBar = ({ genres, handleOnClick, selected }) => {
 	return (
