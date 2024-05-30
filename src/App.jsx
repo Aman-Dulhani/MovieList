@@ -5,10 +5,13 @@ import { useEffect, useState } from "react";
 import { getData } from "./commonUtils";
 import { genreURL } from "./commonUtils";
 import { Chip } from "./Components/Genre";
+import SearchGridContainer from "./SearchGridContainer";
 
 function App() {
 	const [genres, setGenres] = useState([]);
 	const [selected, setSelected] = useState([]);
+	const [inputValue, setInputValue] = useState("");
+
 	useEffect(() => {
 		const getGenres = async () => {
 			const fetchedGenres = await getData(genreURL);
@@ -33,24 +36,29 @@ function App() {
 	return (
 		<div style={{ overflow: "hidden" }}>
 			<AppBar
-				genres={genres}
-				handleOnClick={onSelect}
-				selected={selected}
+				inputValue={inputValue}
+				setInputValue={setInputValue}
 			/>
 			<div style={{ marginTop: 60 }}>
-				<div className="filters">
-					{genres &&
-						genres.map((genre) => (
-							<Chip
-								title={genre.name}
-								key={genre.id}
-								id={genre.id}
-								onClick={onSelect}
-								selected={selected.includes(genre.id)}
-							/>
-						))}
-				</div>
-				<MoviesContainer selectedGenres={selected} />
+				{inputValue.length === 0 ? (
+					<>
+						<div className="filters">
+							{genres &&
+								genres.map((genre) => (
+									<Chip
+										title={genre.name}
+										key={genre.id}
+										id={genre.id}
+										onClick={onSelect}
+										selected={selected.includes(genre.id)}
+									/>
+								))}
+						</div>
+						<MoviesContainer selectedGenres={selected} />
+					</>
+				) : (
+					<SearchGridContainer inputValue={inputValue} />
+				)}
 			</div>
 		</div>
 	);

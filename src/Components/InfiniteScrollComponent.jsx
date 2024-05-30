@@ -7,22 +7,28 @@ const InfiniteScrollComponent = ({
 	loadNextData,
 	renderItems,
 	initialLoad,
+	shouldLoadPrevious,
+	dataKey,
 }) => {
 	const [items, setItems] = useState([]);
 	const [isFetchingPrev, setIsFetchingPrev] = useState(false);
 	const [isFetchingNext, setIsFetchingNext] = useState(false);
+	const [isFetching, setIsFetching] = useState(false);
 	const containerRef = useRef(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
+			setIsFetching(true);
 			const newItems = await initialLoad();
-			setItems([newItems]);
+			console.log(newItems[dataKey]);
+			setItems([...newItems[dataKey]]);
+			setIsFetching(false);
 		};
 		fetchData();
 		if (containerRef.current) {
 			containerRef.current.scrollTo(0, 2);
 		}
-	}, [initialLoad]);
+	}, [dataKey, initialLoad]);
 
 	const handleScroll = useCallback(async () => {
 		const container = containerRef.current;
@@ -36,16 +42,16 @@ const InfiniteScrollComponent = ({
 			setIsFetchingNext(true);
 			const newMovies = await loadNextData();
 			if (newMovies) {
-				setItems((prevMovies) => [...prevMovies, newMovies]);
+				setItems((prevMovies) => [...prevMovies, ...newMovies[dataKey]]);
 			}
 			setIsFetchingNext(false);
 		}
 
-		if (container.scrollTop === 0 && !isFetchingPrev) {
+		if (shouldLoadPrevious && container.scrollTop === 0 && !isFetchingPrev) {
 			setIsFetchingPrev(true);
 			const newMovies = await loadPrevData();
 			if (newMovies) {
-				setItems((prevMovies) => [newMovies, ...prevMovies]);
+				setItems((prevMovies) => [...newMovies[dataKey], ...prevMovies]);
 			}
 			setIsFetchingPrev(false);
 		}
@@ -55,6 +61,8 @@ const InfiniteScrollComponent = ({
 		isFetchingPrev,
 		loadNextData,
 		loadPrevData,
+		shouldLoadPrevious,
+		dataKey,
 	]);
 
 	useEffect(() => {
@@ -74,7 +82,7 @@ const InfiniteScrollComponent = ({
 			className="scrollable-container"
 		>
 			{isFetchingPrev ? <Loading /> : null}
-			{items.length > 0 ? renderItems(items) : null}
+			{!isFetching ? renderItems(items) : <Loading />}
 			{isFetchingNext ? <Loading /> : null}
 		</div>
 	);

@@ -12,8 +12,12 @@ const transformMovies = (response, options) => {
 		rating: movie.vote_average.toFixed(1),
 	}));
 	return {
-		year: options.extraParams?.primary_release_year,
-		results: movies || [],
+		movies: [
+			{
+				year: options.extraParams?.primary_release_year,
+				results: movies || [],
+			},
+		],
 	};
 };
 
@@ -95,7 +99,8 @@ const MoviesContainer = ({ selectedGenres }) => {
 				initialLoad={loadInitial}
 				loadPrevData={loadPrevData}
 				renderItems={renderItems}
-				dataKey="movies"
+				shouldLoadPrevious={true}
+				dataKey={"movies"}
 			/>
 		</div>
 	);

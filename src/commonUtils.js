@@ -7,6 +7,7 @@ export const genreURL = "https://api.themoviedb.org/3/genre/movie/list";
 export const detailsURL = "https://api.themoviedb.org/3/movie/";
 export const netflixLogo =
 	"https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png";
+export const searchURL = "https://api.themoviedb.org/3/search/movie";
 
 export const doGetCall = async (method, key, options) => {
 	const { debounce = 0, extraParams = {} } = options;

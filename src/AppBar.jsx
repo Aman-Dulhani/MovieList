@@ -4,10 +4,8 @@ import { useState } from "react";
 import SearchInput from "./Components/SearchInput";
 import { netflixLogo } from "./commonUtils";
 
-export const AppBar = ({ setSearchResults }) => {
+export const AppBar = ({ inputValue, setInputValue }) => {
 	const [showSearch, setShowSearch] = useState(false);
-	const [inputValue, setInputValue] = useState("");
-	console.log(setSearchResults);
 	return (
 		<div className="app-bar">
 			<div className="app-bar__logo">
