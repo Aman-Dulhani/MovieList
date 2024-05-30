@@ -1,7 +1,13 @@
 // import React from 'react';
 import "../Styles/DialogComponent.css";
 
-const DialogComponent = ({ isOpen, onClose, children, title }) => {
+const DialogComponent = ({
+	isOpen,
+	onClose,
+	children,
+	title,
+	dialogActions,
+}) => {
 	if (!isOpen) {
 		return null;
 	}
@@ -10,7 +16,7 @@ const DialogComponent = ({ isOpen, onClose, children, title }) => {
 		<>
 			<div className={`overlay ${isOpen ? "open" : ""}`}></div>
 			<div className={`dialog ${isOpen ? "dialog--open" : ""}`}>
-				<div className="dialogHeader">
+				<div className="dialog-header">
 					<span style={{ fontWeight: "bold", fontSize: "x-large" }}>
 						{title}
 					</span>
@@ -22,6 +28,9 @@ const DialogComponent = ({ isOpen, onClose, children, title }) => {
 					</button>
 				</div>
 				<div className="dialog-content">{children}</div>
+				{dialogActions ? (
+					<div className="dialog-footer">{dialogActions}</div>
+				) : null}
 			</div>
 		</>
 	);

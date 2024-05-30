@@ -47,11 +47,11 @@
 	background: transparent; /* make scrollbar transparent */
 }
 
-.movie-card:nth-child(3n + 1):hover {
+.movie-card:first-child:hover {
 	transform-origin: left center;
 }
 
-.movie-card:nth-child(3n):hover {
+.movie-card:last-child:hover {
 	transform-origin: right center;
 }
 

@@ -44,7 +44,7 @@
 	pointer-events: auto;
 }
 
-.dialogHeader {
+.dialog-header {
 	background: #242424;
 	display: flex;
 	justify-content: space-between;
@@ -74,4 +74,15 @@
 .dialog-content::-webkit-scrollbar {
 	width: 10px;
 	scrollbar-width: thin;
+}
+
+.dialog-footer {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 30px;
+	padding: 20px;
+	color: whitesmoke;
+	border-top: 2px solid lightgray;
+	background: #242424;
 }
