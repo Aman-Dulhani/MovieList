@@ -32,6 +32,8 @@ npm install
 npm run dev
 ```
 
+Dev server will start on localhost:3000. We can change that in configuration.
+
 ## Future Developments
 
 - **Virtualised Infinite Scrolling**: We can set a virtualised window for the infinite scrolling that would not overload the DOM by populating more and more movies as the user scrolls down or up.
