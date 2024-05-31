@@ -7,7 +7,7 @@ const transformResult = (response) => {
 	const movies = response?.results?.map((movie) => ({
 		id: movie.id,
 		title: movie.title,
-		poster: movie.poster_path,
+		poster: movie.poster_path ? movie.poster_path : movie.backdrop_path,
 		description: movie.overview,
 		rating: movie.vote_average.toFixed(1),
 	}));
@@ -23,7 +23,7 @@ const SearchGridContainer = ({ inputValue }) => {
 
 	const loadInitial = useCallback(async () => {
 		const initialMovies = await getData(searchURL, {
-			debounce: 500,
+			debounce: 3000,
 			transform: transformResult,
 			extraParams: { query: inputValue, page: 1 },
 		});

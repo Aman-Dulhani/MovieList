@@ -20,7 +20,6 @@ const InfiniteScrollComponent = ({
 		const fetchData = async () => {
 			setIsFetching(true);
 			const newItems = await initialLoad();
-			console.log(newItems[dataKey]);
 			setItems([...newItems[dataKey]]);
 			setIsFetching(false);
 		};
@@ -37,7 +36,8 @@ const InfiniteScrollComponent = ({
 		if (
 			container.scrollTop + container.clientHeight >=
 				container.scrollHeight - 5 &&
-			!isFetchingNext
+			!isFetchingNext &&
+			!isFetching
 		) {
 			setIsFetchingNext(true);
 			const newMovies = await loadNextData();
@@ -47,7 +47,12 @@ const InfiniteScrollComponent = ({
 			setIsFetchingNext(false);
 		}
 
-		if (shouldLoadPrevious && container.scrollTop === 0 && !isFetchingPrev) {
+		if (
+			shouldLoadPrevious &&
+			container.scrollTop === 0 &&
+			!isFetchingPrev &&
+			!isFetching
+		) {
 			setIsFetchingPrev(true);
 			const newMovies = await loadPrevData();
 			if (newMovies) {
@@ -63,6 +68,7 @@ const InfiniteScrollComponent = ({
 		loadPrevData,
 		shouldLoadPrevious,
 		dataKey,
+		isFetching,
 	]);
 
 	useEffect(() => {
