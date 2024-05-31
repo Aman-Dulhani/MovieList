@@ -1,4 +1,4 @@
-export const Chip = ({ title, onClick, selected, id }) => {
+const Chip = ({ title, onClick, selected, id }) => {
 	return (
 		<button
 			className={"chip-button" + (selected ? " selected" : "")}
@@ -8,3 +8,5 @@ export const Chip = ({ title, onClick, selected, id }) => {
 		</button>
 	);
 };
+
+export default Chip;

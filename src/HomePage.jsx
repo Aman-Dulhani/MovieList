@@ -4,10 +4,10 @@ import MoviesContainer from "./MoviesContainer";
 import { useEffect, useState } from "react";
 import { getData } from "./commonUtils";
 import { genreURL } from "./commonUtils";
-import { Chip } from "./Components/Genre";
+import Chip from "./Components/ChipButton";
 import SearchGridContainer from "./SearchGridContainer";
 
-function App() {
+function HomePage() {
 	const [genres, setGenres] = useState([]);
 	const [selected, setSelected] = useState([]);
 	const [inputValue, setInputValue] = useState("");
@@ -64,4 +64,4 @@ function App() {
 	);
 }
 
-export default App;
+export default HomePage;
