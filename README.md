@@ -18,7 +18,7 @@ This application allows users to browse through a list of movies with features l
 - **Infinite Scrolling**: Load more movies as the user scrolls down or up depend on the props passed to the component.
 - **Genre Filtering**: Filter movies by selected genre.
 - **Movie Details Dialog**: View detailed information about a movie in a dialog.
-- **Zoom on Hover**: Movie cards zoom in on hover to show details.
+- **Zoom on Hover**: Movie cards zoom in on hover.
 - **Search**: We can search for any movie using search bar at the top.
 
 ## Installation
